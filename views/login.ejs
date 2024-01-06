@@ -1,0 +1,39 @@
+<!-- views/login.ejs -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css">
+
+<script>
+    console.log('Current Page:', JSON.parse('<%- JSON.stringify(currentPage) %>').replace(/&quot;/g, '"'));
+</script>
+
+</head>
+<body>
+    <h1>Connexion</h1>
+    <div class="box-button">
+        <a href="/login" class="<%= (currentPage === 'login') ? 'active' : '' %>">Login</a>
+        <a href="/signup" class="<%= (currentPage === 'signup') ? 'active' : '' %>">Signup</a>
+    </div>
+    <% if (message) { %>
+        <p><%= message %></p>
+    <% } %>
+
+    <form method="post" action="/login">
+        <label for="username">Nom d'utilisateur :</label>
+        <input type="text" id="username" name="username" required aria-label="Nom d'utilisateur">
+
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" name="password" required aria-label="Mot de passe">
+
+        <button type="submit">Se Connecter</button>
+    </form>
+
+    <p>Vous n'avez pas de compte ? <a href="/signup">Inscrivez-vous</a></p>
+</body>
+</html>
+

@@ -1,0 +1,35 @@
+<!-- views/profile.ejs -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+</head>
+<body>
+    <h2>Modifier le Profil</h2>
+
+    <% if (user) { %>
+        <form method="post" action="/dashboard/edit-profile">
+            <label for="username">Nouveau Nom d'utilisateur :</label>
+            <input type="text" id="username" name="username" required aria-label="Nouveau Nom d'utilisateur">
+
+            <label for="password">Nouveau Mot de passe :</label>
+            <input type="password" id="password" name="password" required aria-label="Nouveau Mot de passe">
+
+            <label for="confirmPassword">Confirmer le Mot de passe :</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required aria-label="Confirmer le Mot de passe">
+
+            <button type="submit">Enregistrer</button>
+        </form>
+    <% } else { %>
+        <p>Veuillez vous connecter pour accéder à la modification du profil.</p>
+        <a href="/login">Se Connecter</a>
+    <% } %>
+
+    <p><a href="/dashboard">Retour au Tableau de Bord</a></p>
+</body>
+</html>
+

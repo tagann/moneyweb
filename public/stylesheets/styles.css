@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 600px;
+    max-width: 400px;
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Ajoutez ces styles à votre fichier styles.css */
+#error-message {
+  color: red; /* Couleur du texte en rouge */
+  font-weight: bold; /* Texte en gras */
+}
+
+.box-button {
+    display: flex;
+    white-space: nowrap;
+    width : 400px;
+    border-radius : 30px;
+    margin : 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+        
+.box-button a {
+    text-decoration: none;
+    /*margin-right: 5px;*/
+    padding: 10px 15px;
+    width : 200px;
+    border: none;
+    border-radius: 30px;
+    color: #0882ba;
+    cursor: pointer;
+    align : center;
+}
+
+.box-button a:hover {
+    background-color: #4caf50;
+    color: #ffffff;
+}
+
+.box-button a:active,
+.box-button a.active {
+    background-color: #4caf50;
+    color: #ffffff;
+}
+
+.rule {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #ff0000;
+}
+
+.valid {
+}
+
+
+#pwStrength {
+  /* Style par défaut */
+  color: black;
+}
+
+#pwStrength.strong {
+  /* Style pour le mot de passe fort */
+  color: green;
+}
+
+#pwStrength.medium {
+  /* Style pour le mot de passe fort */
+  color: orange;
+}
+
+#pwStrength.weak {
+  /* Style pour le mot de passe fort */
+  font-weight: bold; /* Texte en gras */
+  color: red;
+}

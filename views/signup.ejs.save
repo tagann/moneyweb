@@ -1,0 +1,93 @@
+<!-- views/signup.ejs -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css">
+
+    <script>
+        console.log('Current Page:', <%= JSON.stringify(currentPage) %>);
+    </script>
+
+</head>
+<body>
+    <h1>Inscription</h1>
+
+    <% if (messages.signupMessage) { %>
+	<p id="error-message"><%= messages.signupMessage %></p>
+    <% } %>
+
+    <form method="post" action="/signup">
+        <div class="box-button">
+            <a href="/login" class="<%= (currentPage === 'login') ? 'active' : '' %>">Login</a>
+            <a href="/signup" class="<%= (currentPage === 'signup') ? 'active' : '' %>">Signup</a>
+        </div>
+        <label for="username">Nom d'utilisateur :</label>
+        <input type="text" id="username" name="username" required aria-label="Nom d'utilisateur">
+
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required aria-label="Email">
+
+	<label for="password">Mot de passe :</label>
+	<input type="password" id="password" name="password" oninput="checkPassword();" required>
+	<span id="passwordStrength" style="color: blue;"></span>
+
+	<script 
+	<script>
+	  // Fonction pour mettre à jour la force du mot de passe en temps réel
+	  function updatePasswordStrength() {
+	    const passwordInput = document.getElementById('password');
+	    const passwordStrengthIndicator = document.getElementById('password-strength-indicator');
+
+	    const strength = checkPasswordStrength(passwordInput.value);
+
+	    // Définir les classes CSS en fonction de la force du mot de passe
+	    if (strength === 0) {
+	      passwordStrengthIndicator.textContent = '';
+	    } else if (strength <= 4) {
+	      passwordStrengthIndicator.textContent = 'Faible';
+	      passwordStrengthIndicator.style.color = 'red';
+	    } else if (strength <= 6) {
+	      passwordStrengthIndicator.textContent = 'Moyen';
+	      passwordStrengthIndicator.style.color = 'orange';
+	    } else {
+	      passwordStrengthIndicator.textContent = 'Fort';
+	      passwordStrengthIndicator.style.color = 'green';
+	    }
+	  }
+
+          function checkPassword() {
+            console.log("checkPassword function called"); // Ajout d'un message de console
+
+            const passwordInput = document.getElementById('password');
+            const strengthIndicator = document.getElementById('passwordStrength');
+            const password = passwordInput.value;
+
+            console.log("Password value:", password); // Ajout d'un message de console
+
+            // Appeler la fonction pour évaluer la force du mot de passe
+            const strength = checkPasswordStrength(password);
+
+            console.log("Password strength:", strength); // Ajout d'un message de console
+
+            // Mettre à jour le message de force du mot de passe
+            strengthIndicator.textContent = `Force du mot de passe : ${strength}`;
+            console.log(strengthIndicator.textContent);
+          }
+
+	</script>
+
+        <button type="submit">S'Inscrire</button>
+	<p class="rule" >Le mot de passe doit être au moins de 8 caractères</p>
+	<p class="rule">Le mot de passe doit contenir au moins un chiffre</p>
+	<p class="rule">Le mot de passe doit contenir au moins un caractère spécial</p>
+	<p class="rule">Le mot de passe doit contenir des minuscules et des majuscules</p>
+
+    </form>
+
+    <p>Vous avez déjà un compte ? <a href="/login">Connectez-vous</a></p>
+</body>
+</html>

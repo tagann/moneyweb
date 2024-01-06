@@ -1,0 +1,37 @@
+<!-- views/dashboard.ejs -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+</head>
+<body>
+    <h2>Bienvenue sur le Tableau de Bord</h2>
+
+    <% if (user) { %>
+        <p>Connecté en tant que <%= user.username %></p>
+
+	<p>
+	<% if (messages.editProfileMessage) { %>
+	    <%= messages.editProfileMessage %>
+	<% } %>
+	</p>
+
+        <form method="post" action="/dashboard/logout">
+            <button type="submit">Déconnexion</button>
+        </form>
+        <p>Contenu du Tableau de Bord</p>
+        <ul>
+	    <li><a href="/dashboard/edit-profile">Modifier le Profil</a></li>
+	    <!--<li><a href="/dashboard/logout">Se Déconnecter</a></li> -->
+        </ul>
+    <% } else { %>
+        <p>Veuillez vous connecter pour accéder au tableau de bord.</p>
+        <a href="/login">Se Connecter</a>
+    <% } %>
+</body>
+</html>
+
